@@ -71,10 +71,10 @@
 
         blur = {
           enabled = true;
-          size = 20;
+          size = 2;
           passes = 3;
-          brightness = 1;
-          contrast = 1;
+          brightness = 0.4;
+          contrast = 1.5;
           noise = 0.02;
           popups = true;
           popups_ignorealpha = 0.2;
