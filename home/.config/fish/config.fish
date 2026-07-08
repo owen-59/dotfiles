@@ -9,4 +9,5 @@ if status is-interactive
     abbr --add exitdown sudo tailscale set --exit-node=
 
     zoxide init --cmd cd fish | source
+    direnv hook fish | source
 end

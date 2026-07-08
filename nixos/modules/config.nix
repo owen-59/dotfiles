@@ -183,6 +183,7 @@
         jc
         jq
         tree-sitter
+        direnv
         bind # nslookup
 
         # system
