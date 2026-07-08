@@ -25,16 +25,16 @@
 
     environment.systemPackages = with pkgs; [
         postman
-        podman-compose
+        qgis
     ];
 
-    virtualisation = {
-        podman = {
+    virtualisation.docker = {
+        enable = false;
+        rootless = {
             enable = true;
-            dockerCompat = true;
-            defaultNetwork.settings.dns_enabled = true;
+            setSocketVariable = true;
         };
     };
 
-    users.users.odo59.extraGroups = [ "podman" ];
+    users.users.odo59.extraGroups = [ "docker" ];
 }
