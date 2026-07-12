@@ -199,8 +199,6 @@
 
         "$mainMod, right, workspace, r+1"
         "$mainMod, left, workspace, r-1"
-
-        ",xf86poweroff, exec, $wlogout"
       ];
 
       bindm = [
