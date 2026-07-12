@@ -21,4 +21,5 @@ else:
     rw = workspace
 
 print("Switching to workspace", rw)
-subprocess.run(["hyprctl", "dispatch", "workspace", str(rw)])
+command = [f"hyprctl", "dispatch", f"hl.dsp.focus({{ workspace = {rw} }})"]
+subprocess.run(command)
