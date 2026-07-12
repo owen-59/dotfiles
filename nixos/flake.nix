@@ -13,9 +13,6 @@
             url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
             inputs.nixpkgs.follows = "nixpkgs";
         };
-
-        astal.url = "github:aylur/astal";
-        ags.url = "github:aylur/ags";
     };
 
     outputs =

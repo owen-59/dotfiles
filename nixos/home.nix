@@ -10,20 +10,10 @@ in
 {
     imports = [
         ./modules/hyprland/hyprland.nix
-        inputs.ags.homeManagerModules.default
     ]
     ++ (if builtins.pathExists hyprland_specific then [ hyprland_specific ] else [ ]);
 
     # Packages
-    home.packages = [
-        inputs.astal.packages.${pkgs.system}.notifd
-    ];
-
-    # Ags
-    programs.ags = {
-        enable = true;
-    };
-
     xdg.enable = true;
 
     xdg.configFile."menus/applications.menu".text = ''
