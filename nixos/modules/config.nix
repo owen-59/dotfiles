@@ -102,7 +102,6 @@
 
     # Programs
     programs = {
-        firefox.enable = true;
         hyprland = {
             enable = true;
             package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
@@ -182,7 +181,6 @@
         zip
         unzip
         zoxide
-        flutter
         stow
         jc
         jq
@@ -228,13 +226,10 @@
 
         # applications
         alacritty
-        vscode
         calibre
-        thunderbird
         vlc
         chromium
         floorp-bin
         kdePackages.dolphin
-        kdePackages.kservice
     ];
 }
