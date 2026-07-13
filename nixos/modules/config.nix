@@ -183,6 +183,7 @@
         jc
         jq
         tree-sitter
+        lua-language-server
         direnv
         bind # nslookup
 
