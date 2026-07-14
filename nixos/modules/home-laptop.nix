@@ -2,6 +2,7 @@
     config,
     lib,
     pkgs,
+    pkgs-stable,
     ...
 }:
 
@@ -25,7 +26,7 @@
 
     environment.systemPackages = with pkgs; [
         postman
-        qgis
+        pkgs-stable.qgis
     ];
 
     virtualisation.docker = {

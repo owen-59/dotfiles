@@ -3,6 +3,7 @@
 
     inputs = {
         nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+        nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-26.05";
 
         home-manager = {
             url = "github:nix-community/home-manager";
@@ -19,15 +20,25 @@
         {
             self,
             nixpkgs,
+            nixpkgs-stable,
             hyprland,
             ...
         }@inputs:
+        let
+            mkStablePkgs = system: import nixpkgs-stable {
+                inherit system;
+                config.allowUnfree = true;
+            };
+        in
         {
             nixosConfigurations = {
-                laptop = nixpkgs.lib.nixosSystem {
+                laptop = let
                     system = "aarch64-linux";
+                    pkgs-stable = mkStablePkgs system;
+                in nixpkgs.lib.nixosSystem {
+                    inherit system;
                     specialArgs = {
-                        inherit inputs;
+                        inherit inputs pkgs-stable;
                     };
 
                     modules = [
@@ -38,7 +49,7 @@
                             home-manager.useGlobalPkgs = true;
                             home-manager.useUserPackages = true;
                             home-manager.extraSpecialArgs = {
-                                inherit inputs;
+                                inherit inputs pkgs-stable;
                             };
                             home-manager.users.odo59.imports = [
                                 ./home.nix
@@ -48,10 +59,13 @@
                     ];
                 };
 
-                home-laptop = nixpkgs.lib.nixosSystem {
+                home-laptop = let
                     system = "x86_64-linux";
+                    pkgs-stable = mkStablePkgs system;
+                in nixpkgs.lib.nixosSystem {
+                    inherit system;
                     specialArgs = {
-                        inherit inputs;
+                        inherit inputs pkgs-stable;
                     };
 
                     modules = [
@@ -62,7 +76,7 @@
                             home-manager.useGlobalPkgs = true;
                             home-manager.useUserPackages = true;
                             home-manager.extraSpecialArgs = {
-                                inherit inputs;
+                                inherit inputs pkgs-stable;
                             };
                             home-manager.users.odo59.imports = [
                                 ./home.nix
