@@ -7,6 +7,10 @@
 }:
 
 {
+    imports = [
+        ./hyprlandLuaConfig.nix
+    ];
+
     users.users.odo59 = {
         isNormalUser = true;
         extraGroups = [
