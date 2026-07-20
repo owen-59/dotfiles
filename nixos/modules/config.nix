@@ -190,6 +190,7 @@
         lua-language-server
         direnv
         bind # nslookup
+        keychain
 
         # system
         psmisc

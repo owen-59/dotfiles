@@ -10,4 +10,6 @@ if status is-interactive
 
     zoxide init --cmd cd fish | source
     direnv hook fish | source
+
+    keychain --eval --quiet id_ed25519 | source
 end
