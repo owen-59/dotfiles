@@ -1,3 +1,5 @@
+local focus_relative_workspace = require("modules.scripts.focus_relative_workspace")
+
 local terminal = "alacritty"
 local fileManager = "dolphin"
 local menu = "pidof rofi || rofi -show drun"
@@ -33,7 +35,7 @@ hl.bind("XF86AudioPrev",  hl.dsp.exec_cmd("playerctl previous"),   { locked = tr
 hl.bind("SUPER + right", hl.dsp.focus({ workspace = "r+1" }))
 hl.bind("SUPER + left", hl.dsp.focus({ workspace = "r-1" }))
 for n = 1, 9 do
-    hl.bind("SUPER + " .. n, hl.dsp.exec_cmd("python3 ~/.config/hypr/workspace.py " .. n))
+    hl.bind("SUPER + " .. n, function() focus_relative_workspace(n) end)
 end
 
 for n = 1, 9 do
