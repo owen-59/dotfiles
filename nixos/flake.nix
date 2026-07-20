@@ -14,6 +14,10 @@
             url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
             inputs.nixpkgs.follows = "nixpkgs";
         };
+        silentSDDM = {
+            url = "github:uiriansan/SilentSDDM";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
     };
 
     outputs =

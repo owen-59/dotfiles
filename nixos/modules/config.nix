@@ -9,6 +9,7 @@
 {
     imports = [
         ./hyprlandLuaConfig.nix
+        inputs.silentSDDM.nixosModules.default
     ];
 
     users.users.odo59 = {
@@ -112,6 +113,10 @@
         blueman.enable = true;
         tailscale.enable = true;
         desktopManager.plasma6.enable = true;
+    };
+    programs.silentSDDM = {
+        enable = true;
+        theme = "default";
     };
 
     services.displayManager.sddm = {
