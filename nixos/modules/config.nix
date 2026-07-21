@@ -84,6 +84,14 @@
             pulse.enable = true;
         };
 
+        syncthing = {
+            enable = true;
+            user = "odo59";
+            dataDir = "/home/odo59";
+            configDir = "/home/odo59/.config/syncthing";
+            openDefaultPorts = false;
+        };
+
         resolved.enable = true;
         upower.enable = true;
 
