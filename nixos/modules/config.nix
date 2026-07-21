@@ -244,5 +244,7 @@
         chromium
         floorp-bin
         kdePackages.dolphin
+        texstudio
+        texliveMedium
     ];
 }
