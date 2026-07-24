@@ -244,6 +244,7 @@
         chromium
         floorp-bin
         kdePackages.dolphin
+        godot
         texstudio
         texliveMedium
     ];
