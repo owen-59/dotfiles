@@ -10,7 +10,7 @@ hl.bind("SUPER + RETURN", hl.dsp.exec_cmd(terminal))
 hl.bind("SUPER + B", hl.dsp.exec_cmd(browser))
 hl.bind("SUPER + Z", hl.dsp.window.close({}))
 hl.bind("SUPER + M", hl.dsp.exec_cmd(wlogout))
-hl.bind("SUPER + SHIFT + M", hl.dsp.exec_cmd("systemctl suspend"))
+hl.bind("SUPER + SHIFT + M", hl.dsp.exec_cmd("systemctl suspend"), { locked = true })
 hl.bind("SUPER + E", hl.dsp.exec_cmd(fileManager))
 hl.bind("SUPER + SPACE", hl.dsp.exec_cmd(menu))
 -- switch keyboard layout here
