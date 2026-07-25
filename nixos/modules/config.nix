@@ -245,6 +245,7 @@
         floorp-bin
         kdePackages.dolphin
         godot
+        aseprite
         texstudio
         texliveMedium
     ];
