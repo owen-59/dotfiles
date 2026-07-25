@@ -11,7 +11,7 @@ return {
         dependencies = { "williamboman/mason.nvim" },
         config = function()
             require("mason-lspconfig").setup({
-                ensure_installed = { "pyright", "html", "nil_ls", "vtsls" },
+                ensure_installed = { "pyright", "html", "nil_ls", "vtsls", "gdtoolkit" },
             })
         end,
     },
@@ -31,11 +31,13 @@ return {
             vim.lsp.config("html", {})
             vim.lsp.config("nil_ls", {})
             vim.lsp.config("vtsls", {})
+            vim.lsp.config("gdtoolkit", {})
 
             vim.lsp.enable("pyright")
             vim.lsp.enable("html")
             vim.lsp.enable("vtsls")
             vim.lsp.enable("nil_ls")
+            vim.lsp.enable("gdtoolkit")
 
             vim.keymap.set("n", "gd", vim.lsp.buf.definition)
             vim.keymap.set("n", "K", vim.lsp.buf.hover)
