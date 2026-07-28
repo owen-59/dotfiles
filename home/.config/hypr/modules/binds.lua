@@ -1,4 +1,4 @@
-local focus_relative_workspace = require("modules.scripts.focus_relative_workspace")
+local monitor_tools = require("modules.scripts.monitor_tools")
 
 local terminal = "alacritty"
 local fileManager = "dolphin"
@@ -35,7 +35,11 @@ hl.bind("XF86AudioPrev",  hl.dsp.exec_cmd("playerctl previous"),   { locked = tr
 hl.bind("SUPER + right", hl.dsp.focus({ workspace = "r+1" }))
 hl.bind("SUPER + left", hl.dsp.focus({ workspace = "r-1" }))
 for n = 1, 9 do
-    hl.bind("SUPER + " .. n, function() focus_relative_workspace(n) end)
+    hl.bind("SUPER + " .. n, function() hl.dispatch(
+            hl.dsp.focus({
+                workspace = tostring(monitor_tools.get_relative_workspace(n))
+            })
+        ) end)
 end
 
 for n = 1, 9 do
