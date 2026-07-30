@@ -4,12 +4,12 @@ set -g fish_key_bindings fish_vi_key_bindings
 
 if status is-interactive
     abbr --add n nvim
-    abbr --add c cd
     abbr --add exitup tailscale set --exit-node=server
     abbr --add exitdown tailscale set --exit-node=
 
     zoxide init --cmd cd fish | source
     direnv hook fish | source
+    devenv hook fish | source
 
     keychain --eval --quiet id_ed25519 | source
 end
