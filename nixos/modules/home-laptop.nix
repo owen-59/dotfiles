@@ -27,6 +27,7 @@
     environment.systemPackages = with pkgs; [
         postman
         pkgs-stable.qgis
+        discord
     ];
 
     virtualisation.docker = {
