@@ -255,6 +255,6 @@
         godot
         aseprite
         texstudio
-        texliveMedium
+        texliveFull
     ];
 }
