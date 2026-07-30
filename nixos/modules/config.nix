@@ -203,6 +203,14 @@
         bind # nslookup
         keychain
 
+        #lsp
+        lua-language-server
+        pyright
+        vscode-langservers-extracted
+        nil
+        vtsls
+        gdtoolkit_4
+
         # system
         psmisc
         libnotify
