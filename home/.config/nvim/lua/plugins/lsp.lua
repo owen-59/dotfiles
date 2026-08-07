@@ -72,7 +72,12 @@ return {
                     showTodos = false,
                 }
             }
-        }) end, 
+        }) end,
+    },
+    {
+        "mrcjkb/rustaceanvim",
+        version = "^9",
+        lazy = false,
     },
     {
         "esmuellert/nvim-eslint",
