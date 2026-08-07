@@ -3,6 +3,7 @@
     lib,
     pkgs,
     inputs,
+    nsa,
     ...
 }:
 
@@ -207,6 +208,8 @@
         bind # nslookup
         keychain
         devenv
+        nsa.packages.${pkgs.system}.default
+
 
         #lsp
         lua-language-server

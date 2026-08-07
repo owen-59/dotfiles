@@ -18,6 +18,10 @@
             url = "github:uiriansan/SilentSDDM";
             inputs.nixpkgs.follows = "nixpkgs";
         };
+        nsa = {
+            url = "github:owen-59/nsa";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
     };
 
     outputs =
@@ -26,6 +30,7 @@
             nixpkgs,
             nixpkgs-stable,
             hyprland,
+            nsa,
             ...
         }@inputs:
         let
@@ -42,7 +47,7 @@
                 in nixpkgs.lib.nixosSystem {
                     inherit system;
                     specialArgs = {
-                        inherit inputs pkgs-stable;
+                        inherit inputs pkgs-stable nsa;
                     };
 
                     modules = [
@@ -69,7 +74,7 @@
                 in nixpkgs.lib.nixosSystem {
                     inherit system;
                     specialArgs = {
-                        inherit inputs pkgs-stable;
+                        inherit inputs pkgs-stable nsa;
                     };
 
                     modules = [
