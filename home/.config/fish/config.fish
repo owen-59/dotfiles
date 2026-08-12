@@ -11,5 +11,5 @@ if status is-interactive
     direnv hook fish | source
     devenv hook fish | source
 
-    keychain --eval --quiet id_ed25519 | source
+    SHELL=fish keychain --eval --quiet id_ed25519 | source
 end

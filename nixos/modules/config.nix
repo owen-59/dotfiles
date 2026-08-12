@@ -254,7 +254,7 @@
         quickshell
 
         # applications
-        alacritty
+        ghostty
         calibre
         vlc
         chromium

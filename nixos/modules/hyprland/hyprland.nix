@@ -11,7 +11,7 @@
       ###################
       ### MY PROGRAMS ###
       ###################
-      "$terminal" = "alacritty";
+      "$terminal" = "ghostty";
       "$fileManager" = "dolphin";
       "$menu" = "pidof rofi || rofi -show drun";
       "$browser" = "floorp";
@@ -232,7 +232,7 @@
         float = 1
         pin = 1
       }
-      windowrule = opacity 0.9 override, match:class alacritty 
+      windowrule = opacity 0.9 override, match:class ghostty 
     '';
   };
 }
