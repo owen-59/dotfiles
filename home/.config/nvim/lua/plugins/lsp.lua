@@ -113,5 +113,14 @@ return {
                 auto_install = true;
             })
         end,
+    },
+    {
+        "nvim-treesitter/nvim-treesitter",
+        opts = {
+            indent = {
+                enable = true,
+                disable = { "dart " },
+            }
+        }
     }
 }
