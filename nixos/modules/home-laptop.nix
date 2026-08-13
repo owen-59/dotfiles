@@ -25,9 +25,9 @@
     users.extraGroups.vboxusers.members = [ "odo59" ];
 
     environment.systemPackages = with pkgs; [
-        postman
         pkgs-stable.qgis
         discord
+        scrcpy
     ];
 
     virtualisation.docker = {
