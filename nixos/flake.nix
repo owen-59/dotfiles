@@ -38,13 +38,12 @@
                 inherit system;
                 config.allowUnfree = true;
             };
-        in
-        {
-            nixosConfigurations = {
-                laptop = let
-                    system = "aarch64-linux";
+
+            mkSystem = { system, hostname, hyprlandConfig }:
+                let
                     pkgs-stable = mkStablePkgs system;
-                in nixpkgs.lib.nixosSystem {
+                in
+                nixpkgs.lib.nixosSystem {
                     inherit system;
                     specialArgs = {
                         inherit inputs pkgs-stable nsa;
@@ -52,7 +51,7 @@
 
                     modules = [
                         ./modules/config.nix
-                        ./modules/laptop.nix
+                        ./modules/${hostname}.nix
                         inputs.home-manager.nixosModules.home-manager
                         {
                             home-manager.useGlobalPkgs = true;
@@ -62,38 +61,26 @@
                             };
                             home-manager.users.odo59.imports = [
                                 ./home.nix
-                                ./modules/hyprland/laptop.nix
+                                hyprlandConfig
                             ];
                         }
                     ];
                 };
+        in
+        {
+            nixosConfigurations = {
+                laptop = mkSystem {
+                    system = "aarch64-linux";
+                    hostname = "laptop";
+                    hyprlandConfig = ./modules/hyprland/laptop.nix;
+                };
 
-                home-laptop = let
+                home-laptop = mkSystem {
                     system = "x86_64-linux";
-                    pkgs-stable = mkStablePkgs system;
-                in nixpkgs.lib.nixosSystem {
-                    inherit system;
-                    specialArgs = {
-                        inherit inputs pkgs-stable nsa;
-                    };
-
-                    modules = [
-                        ./modules/config.nix
-                        ./modules/home-laptop.nix
-                        inputs.home-manager.nixosModules.home-manager
-                        {
-                            home-manager.useGlobalPkgs = true;
-                            home-manager.useUserPackages = true;
-                            home-manager.extraSpecialArgs = {
-                                inherit inputs pkgs-stable;
-                            };
-                            home-manager.users.odo59.imports = [
-                                ./home.nix
-                                ./modules/hyprland/home-laptop.nix
-                            ];
-                        }
-                    ];
+                    hostname = "home-laptop";
+                    hyprlandConfig = ./modules/hyprland/home-laptop.nix;
                 };
             };
         };
 }
+
