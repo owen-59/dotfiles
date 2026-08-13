@@ -182,6 +182,7 @@
         tree
         file
         btop
+        eza
         nodejs_24
         gh
         mlocate

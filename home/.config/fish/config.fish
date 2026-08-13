@@ -7,6 +7,8 @@ if status is-interactive
     abbr --add exitup tailscale set --exit-node=server
     abbr --add exitdown tailscale set --exit-node=
 
+    alias ls="eza -1l --icons --hyperlink --group-directories-first --git-ignore --git --no-permissions --no-user --no-filesize"
+
     zoxide init --cmd cd fish | source
     direnv hook fish | source
     devenv hook fish | source
