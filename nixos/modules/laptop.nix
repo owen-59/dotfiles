@@ -8,8 +8,9 @@
 {
     imports = [
         ./hardware/laptop.nix
-        ../apple-silicon-support
     ];
+
+    hardware.asahi.enable = true;
 
     services.dnsproxy = {
         enable = true;

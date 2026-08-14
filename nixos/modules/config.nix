@@ -3,7 +3,6 @@
     lib,
     pkgs,
     inputs,
-    nsa,
     ...
 }:
 
@@ -118,7 +117,7 @@
     programs = {
         hyprland = {
             enable = true;
-            package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+            # package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
         };
         nix-ld.enable = true;
     };

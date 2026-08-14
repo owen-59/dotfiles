@@ -2,7 +2,6 @@
     config,
     lib,
     pkgs,
-    pkgs-stable,
     ...
 }:
 
@@ -25,7 +24,8 @@
     users.extraGroups.vboxusers.members = [ "odo59" ];
 
     environment.systemPackages = with pkgs; [
-        pkgs-stable.qgis
+        postman
+        qgis
         discord
         scrcpy
     ];

@@ -2,18 +2,16 @@
     description = "flake for nixos";
 
     inputs = {
-        nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-        nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-26.05";
+        nixpkgs.url = "github:NixOS/nixpkgs/26.05";
+
+        apple-silicon-support.url = "github:nix-community/nixos-apple-silicon";
+        apple-silicon-support.inputs.nixpkgs.follows = "nixpkgs";
 
         home-manager = {
             url = "github:nix-community/home-manager";
             inputs.nixpkgs.follows = "nixpkgs";
         };
 
-        hyprland = {
-            url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
-            inputs.nixpkgs.follows = "nixpkgs";
-        };
         silentSDDM = {
             url = "github:uiriansan/SilentSDDM";
             inputs.nixpkgs.follows = "nixpkgs";
@@ -28,25 +26,16 @@
         {
             self,
             nixpkgs,
-            nixpkgs-stable,
-            hyprland,
+            apple-silicon-support,
             nsa,
             ...
         }@inputs:
         let
-            mkStablePkgs = system: import nixpkgs-stable {
-                inherit system;
-                config.allowUnfree = true;
-            };
-
-            mkSystem = { system, hostname, hyprlandConfig }:
-                let
-                    pkgs-stable = mkStablePkgs system;
-                in
+            mkSystem = { system, hostname, extraModules }:
                 nixpkgs.lib.nixosSystem {
                     inherit system;
                     specialArgs = {
-                        inherit inputs pkgs-stable nsa;
+                        inherit inputs nsa;
                     };
 
                     modules = [
@@ -57,14 +46,13 @@
                             home-manager.useGlobalPkgs = true;
                             home-manager.useUserPackages = true;
                             home-manager.extraSpecialArgs = {
-                                inherit inputs pkgs-stable;
+                                inherit inputs;
                             };
                             home-manager.users.odo59.imports = [
                                 ./home.nix
-                                hyprlandConfig
                             ];
                         }
-                    ];
+                    ] ++ extraModules;
                 };
         in
         {
@@ -72,13 +60,12 @@
                 laptop = mkSystem {
                     system = "aarch64-linux";
                     hostname = "laptop";
-                    hyprlandConfig = ./modules/hyprland/laptop.nix;
+                    extraModules = [ apple-silicon-support.nixosModules.apple-silicon-support ];
                 };
 
                 home-laptop = mkSystem {
                     system = "x86_64-linux";
                     hostname = "home-laptop";
-                    hyprlandConfig = ./modules/hyprland/home-laptop.nix;
                 };
             };
         };
