@@ -66,6 +66,7 @@
                 home-laptop = mkSystem {
                     system = "x86_64-linux";
                     hostname = "home-laptop";
+                    extraModules = [];
                 };
             };
         };
