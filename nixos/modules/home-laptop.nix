@@ -17,12 +17,6 @@
         "8.8.8.8"
     ];
 
-    virtualisation.virtualbox.host = {
-        enable = true;
-        enableExtensionPack = true;
-    };
-    users.extraGroups.vboxusers.members = [ "odo59" ];
-
     environment.systemPackages = with pkgs; [
         postman
         qgis
