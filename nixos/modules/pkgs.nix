@@ -89,7 +89,7 @@
         quickshell
 
         # applications
-        ghostty
+        foot
         calibre
         vlc
         chromium

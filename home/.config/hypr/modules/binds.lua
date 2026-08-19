@@ -1,6 +1,6 @@
 local monitor_tools = require("modules.scripts.monitor_tools")
 
-local terminal = "ghostty"
+local terminal = "foot"
 local fileManager = "dolphin"
 local menu = "pidof rofi || rofi -show drun"
 local browser = "floorp"
