@@ -63,6 +63,7 @@
         pavucontrol
         bluez
         brightnessctl
+        playerctl
         gccgo15
         python3
         hyprshot
