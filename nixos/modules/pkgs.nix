@@ -53,6 +53,7 @@
         nil
         vtsls
         gdtoolkit_4
+        texlab
 
         # system
         psmisc

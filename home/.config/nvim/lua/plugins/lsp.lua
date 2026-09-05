@@ -15,12 +15,14 @@ return {
             vim.lsp.config("nil_ls", {})
             vim.lsp.config("vtsls", {})
             vim.lsp.config("gdtoolkit", {})
+            vim.lsp.config("texlab", {})
 
             vim.lsp.enable("pyright")
             vim.lsp.enable("html")
             vim.lsp.enable("vtsls")
             vim.lsp.enable("nil_ls")
             vim.lsp.enable("gdtoolkit")
+            vim.lsp.enable("texlab")
 
             vim.keymap.set("n", "gd", vim.lsp.buf.definition)
             vim.keymap.set("n", "K", vim.lsp.buf.hover)
