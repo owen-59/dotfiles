@@ -28,5 +28,10 @@ return {
         opts = {
             chars_lower_limit = 3,
         }
+    },
+    {
+        "chentoast/marks.nvim",
+        event = "VeryLazy",
+        opts = {},
     }
 }
