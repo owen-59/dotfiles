@@ -66,8 +66,8 @@
         HYPRSHOT_DIR = "/home/odo59/Screenshots";
     };
 
-    environment.variables = rec {
-        SHELL = "fish";
+    environment.variables = {
+        SHELL = "/run/current-system/sw/bin/fish";
     };
 
     swapDevices = [
@@ -120,6 +120,11 @@
             # package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
         };
         nix-ld.enable = true;
+        gnupg.agent = {
+            enable = true;
+            enableSSHSupport = true;
+            pinentryPackage = pkgs.pinentry-qt;
+        };
     };
 
     services = {
