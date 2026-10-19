@@ -76,6 +76,7 @@
         hyprlock
         hypridle
         hyprpicker
+        hyprshutdown
 
         # background apps
         dunst
