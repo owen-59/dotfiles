@@ -5,6 +5,7 @@ local fileManager = "dolphin"
 local menu = "pidof rofi || rofi -show drun"
 local browser = "floorp"
 local wlogout = "pkill wlogout || wlogout"
+local toggleBar = "pkill quickshell || quickshell"
 
 hl.bind("SUPER + RETURN", hl.dsp.exec_cmd(terminal))
 hl.bind("SUPER + B", hl.dsp.exec_cmd(browser))
@@ -20,6 +21,7 @@ end, { locked = true })
 hl.bind("SUPER + F", hl.dsp.window.fullscreen())
 hl.bind("SUPER + SHIFT + S", hl.dsp.exec_cmd("hyprshot -m region"))
 hl.bind("SUPER + L", hl.dsp.exec_cmd("loginctl lock-session"))
+hl.bind("SUPER + R", hl.dsp.exec_cmd(toggleBar))
 
 hl.bind("SUPER + mouse:272", hl.dsp.window.drag(),   { mouse = true })
 hl.bind("SUPER + mouse:273", hl.dsp.window.resize(), { mouse = true })
