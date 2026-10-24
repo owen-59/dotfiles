@@ -33,5 +33,9 @@ return {
         "chentoast/marks.nvim",
         event = "VeryLazy",
         opts = {},
+    },
+    {
+        "wakatime/vim-wakatime",
+        lazy = false
     }
 }
