@@ -11,6 +11,7 @@
     services.flatpak.enable = true;
 
     programs.steam.enable = true;
+    programs.virt-manager.enable = true;
     networking.nameservers = [
         "100.100.100.100"
         "1.1.1.1"
@@ -23,7 +24,8 @@
         discord
         scrcpy
     ];
-
+    virtualisation.libvirtd.enable = true;
+    virtualisation.spiceUSBRedirection.enable = true;
     virtualisation.docker = {
         enable = false;
         rootless = {
