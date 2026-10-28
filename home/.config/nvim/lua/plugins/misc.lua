@@ -20,10 +20,6 @@ return {
         }) end,
     },
     {
-        "xiyaowong/transparent.nvim",
-        lazy = false
-    },
-    {
         "wurli/visimatch.nvim",
         opts = {
             chars_lower_limit = 3,
