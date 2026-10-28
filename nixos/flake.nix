@@ -3,6 +3,7 @@
 
     inputs = {
         nixpkgs.url = "github:NixOS/nixpkgs/26.05";
+        nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
         apple-silicon-support.url = "github:nix-community/nixos-apple-silicon";
         apple-silicon-support.inputs.nixpkgs.follows = "nixpkgs";
@@ -26,6 +27,7 @@
         {
             self,
             nixpkgs,
+            nixpkgs-unstable,
             apple-silicon-support,
             nsa,
             ...
@@ -35,7 +37,7 @@
                 nixpkgs.lib.nixosSystem {
                     inherit system;
                     specialArgs = {
-                        inherit inputs nsa;
+                        inherit inputs nsa nixpkgs-unstable;
                     };
 
                     modules = [
@@ -49,7 +51,7 @@
                                 inherit inputs;
                             };
                             home-manager.users.odo59.imports = [
-                                ./home.nix
+                                (./home.nix)
                             ];
                         }
                     ] ++ extraModules;

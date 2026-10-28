@@ -1,9 +1,15 @@
 {
     pkgs,
+    nixpkgs-unstable,
     nsa,
     ...
 }:
-
+let
+    unstable = import nixpkgs-unstable {
+        system = pkgs.stdenv.hostPlatform.system;
+        config.allowUnfree = true;
+    };
+in
 {
     environment.systemPackages = with pkgs; [
         # Command Line tools
@@ -42,7 +48,7 @@
         direnv
         bind # nslookup
         keychain
-        devenv
+        unstable.devenv
         nsa.packages.${pkgs.system}.default
 
 
