@@ -7,6 +7,7 @@ require("modules.misc")
 
 local hostname = io.popen("hostname"):read("*l")
 local isLaptop = hostname == "nixos"
+local isScaleDisabled = false
 
 if isLaptop then
     hl.monitor({
@@ -15,6 +16,31 @@ if isLaptop then
         position = "auto",
         scale = 1.67,
     })
+    hl.bind("SUPER + S", function() 
+        if isScaleDisabled then
+            isScaleDisabled = false
+            hl.config({ 
+                input = { 
+                    sensitivity = 0 
+                } 
+            }); 
+            hl.monitor({
+                output="eDP-1",
+                scale=1.67
+            })
+        else
+            isScaleDisabled = true
+            hl.config({ 
+                input = { 
+                    sensitivity = 0.3 
+                } 
+            }); 
+            hl.monitor({
+                output="eDP-1",
+                scale=1
+            })
+        end
+    end)
 else
     hl.workspace_rule({ workspace = "1", monitor = "eDP-1", default = true})
     hl.workspace_rule({ workspace = "2", monitor = "eDP-1"})
