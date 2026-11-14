@@ -30,8 +30,6 @@
     };
 
     boot = {
-        initrd.systemd.enable = true;
-        # Use the systemd-boot EFI boot loader.
         loader.systemd-boot.enable = true;
         loader.efi.canTouchEfiVariables = true;
     };
@@ -47,10 +45,13 @@
             allowedUDPPorts = [ config.services.tailscale.port ];
             allowedTCPPorts = [ 9090 ];
         };
+        nameservers = [
+            "100.100.100.100"
+            "1.1.1.1"
+            "8.8.8.8"
+        ];
     };
 
-    systemd.network.wait-online.enable = false;
-    systemd.services.resolvconf.enable = false;
     boot.initrd.systemd.network.wait-online.enable = false;
 
     time.timeZone = "Australia/Melbourne";
