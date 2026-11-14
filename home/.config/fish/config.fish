@@ -15,3 +15,6 @@ if status is-interactive
 
     SHELL=fish keychain --eval --quiet id_ed25519 | source
 end
+
+set -gx PATH "$HOME/.wakatime" $PATH
+terminal-wakatime init fish | source
