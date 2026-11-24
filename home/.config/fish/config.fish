@@ -6,6 +6,7 @@ if status is-interactive
     abbr --add n nvim
     abbr --add exitup tailscale set --exit-node=server
     abbr --add exitdown tailscale set --exit-node=
+    abbr --add chat tmux -L weechat attach -t weechat
 
     alias ls="eza -1l --icons --hyperlink --group-directories-first --git-ignore --git --no-permissions --no-user --no-filesize"
 
