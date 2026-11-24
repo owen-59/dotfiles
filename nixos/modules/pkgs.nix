@@ -42,6 +42,7 @@
         bind # nslookup
         keychain
         devenv
+        weechat
         nsa.packages.${pkgs.system}.default
 
 

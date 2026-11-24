@@ -10,11 +10,13 @@
     imports = [
         ./hyprlandLuaConfig.nix
         ./pkgs.nix
+        ./weechat.nix
         inputs.silentSDDM.nixosModules.default
     ];
 
     users.users.odo59 = {
         isNormalUser = true;
+        linger = true;
         extraGroups = [
             "wheel"
             "input"
